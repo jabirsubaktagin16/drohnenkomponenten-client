@@ -26,11 +26,11 @@ const BusinessSummary = () => {
           <div className="flex flex-col justify-center items-center">
             <FaMoneyCheckAlt />
             <h1 className="text-2xl text-center font-bold mt-4">
-              <CountUp start={0} end={10} delay={0}>
+              <CountUp start={0} end={200} delay={0}>
                 {({ countUpRef }) => (
                   <div>
                     <span ref={countUpRef} />
-                    L+
+                    K+
                   </div>
                 )}
               </CountUp>

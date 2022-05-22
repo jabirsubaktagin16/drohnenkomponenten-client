@@ -30,7 +30,7 @@ const SocialLogin = () => {
   if (googleUser || githubUser) navigate(from, { replace: true });
 
   return (
-    <div className="flex justify-center gap-2 mt-4">
+    <div className="flex justify-center gap-2 mt-4 flex-col lg:flex-row">
       <button
         onClick={() => signInWithGoogle()}
         className="btn gap-2 bg-red-600 border-0 hover:bg-red-500 text-white"

@@ -23,6 +23,9 @@ const Header = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
+      <li>
+        <Link to="/portfolio">My Portfolio</Link>
+      </li>
       <li className="lg:ml-6">
         {user ? (
           <button onClick={handleSignOut} className="btn btn-ghost">

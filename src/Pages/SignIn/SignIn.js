@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import login from "../../assets/images/login.gif";
 import auth from "./../../firebase.init";
 import Loading from "./../Shared/Loading";
 import SocialLogin from "./SocialLogin";
@@ -68,16 +69,11 @@ const SignIn = () => {
 
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row shadow-2xl">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+          <img src={login} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full lg:max-w-lg shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full lg:max-w-lg bg-base-100">
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
