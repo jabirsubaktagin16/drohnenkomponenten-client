@@ -11,7 +11,7 @@ const SingleTool = ({ tool }) => {
         <h2 className="card-title">{name}</h2>
         <h3 className="text-2xl font-bold">${price}</h3>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary text-white">Buy Now</button>
         </div>
       </div>
     </div>
