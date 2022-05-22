@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 import { FaMoneyCheckAlt, FaTools, FaUserAlt } from "react-icons/fa";
 import { MdOutlineReviews } from "react-icons/md";
 
@@ -10,8 +11,13 @@ const BusinessSummary = () => {
           <div className="flex flex-col justify-center items-center">
             <FaUserAlt />
             <h1 className="text-2xl text-center font-bold mt-4">
-              100+
-              <br />
+              <CountUp start={0} end={100} delay={0}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />+
+                  </div>
+                )}
+              </CountUp>
               Customers
             </h1>
           </div>
@@ -20,8 +26,14 @@ const BusinessSummary = () => {
           <div className="flex flex-col justify-center items-center">
             <FaMoneyCheckAlt />
             <h1 className="text-2xl text-center font-bold mt-4">
-              2M+
-              <br />
+              <CountUp start={0} end={10} delay={0}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                    L+
+                  </div>
+                )}
+              </CountUp>
               Revenues
             </h1>
           </div>
@@ -30,8 +42,14 @@ const BusinessSummary = () => {
           <div className="flex flex-col justify-center items-center">
             <MdOutlineReviews />
             <h1 className="text-2xl text-center font-bold mt-4">
-              10K+
-              <br />
+              <CountUp start={0} end={100} delay={0}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />
+                    K+
+                  </div>
+                )}
+              </CountUp>
               Reviews
             </h1>
           </div>
@@ -40,8 +58,13 @@ const BusinessSummary = () => {
           <div className="flex flex-col justify-center items-center">
             <FaTools />
             <h1 className="text-2xl text-center font-bold mt-4">
-              10+
-              <br />
+              <CountUp start={0} end={10} delay={0}>
+                {({ countUpRef }) => (
+                  <div>
+                    <span ref={countUpRef} />+
+                  </div>
+                )}
+              </CountUp>
               Tools
             </h1>
           </div>
