@@ -1,4 +1,6 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 
 const SingleReview = ({ review }) => {
   return (
@@ -13,6 +15,12 @@ const SingleReview = ({ review }) => {
 
       <div className="card-body items-center text-center">
         <h2 className="card-title">{review.name}</h2>
+        <Rating
+          initialRating={review.rating}
+          emptySymbol={<FaStar />}
+          fullSymbol={<FaStar style={{ color: "goldenrod" }} />}
+          readonly
+        ></Rating>
         <p>{review.description}</p>
       </div>
     </div>
