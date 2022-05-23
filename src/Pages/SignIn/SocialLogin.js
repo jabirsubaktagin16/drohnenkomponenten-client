@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import Loading from "../Shared/Loading";
 import useToken from "./../../hooks/useToken";
 
 const SocialLogin = () => {
@@ -28,7 +27,7 @@ const SocialLogin = () => {
   if (googleError || githubError)
     toast.error(googleError?.message || githubError?.message);
 
-  if (googleLoading || githubLoading) return <Loading />;
+  // if (googleLoading || githubLoading) return <Loading />;
 
   if (token) navigate(from, { replace: true });
 

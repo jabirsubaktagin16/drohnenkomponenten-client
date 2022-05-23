@@ -1,10 +1,12 @@
 import React from "react";
 import questions from "../../assets/images/Questions.png";
 import Footer from "../Shared/Footer";
+import Header from "../Shared/Header";
 
 const Blogs = () => {
   return (
     <>
+      <Header />
       <div className="my-8 lg:px-20">
         <h1 className="text-4xl font-bold text-primary text-center">
           Questions & Answers

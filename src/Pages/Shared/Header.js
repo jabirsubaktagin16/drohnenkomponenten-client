@@ -29,12 +29,15 @@ const Header = () => {
       </li>
       <li className={!user ? "lg:ml-6" : ""}>
         {user ? (
-          <div className="dropdown dropdown-hover">
-            <label tabindex="0" className="btn btn-ghost rounded-btn">
+          <div className="dropdown dropdown-end">
+            <label
+              tabIndex="0"
+              className="btn btn-link no-underline normal-case"
+            >
               {user.displayName}
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="menu dropdown-content p-2 shadow bg-base-100 w-52 mt-4"
             >
               <li>
@@ -48,7 +51,7 @@ const Header = () => {
             </ul>
           </div>
         ) : (
-          <Link className="btn btn-accent" to="/signin">
+          <Link className="btn btn-accent text-base-100" to="/signin">
             Sign In
           </Link>
         )}

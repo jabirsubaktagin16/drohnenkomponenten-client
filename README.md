@@ -35,6 +35,7 @@ It is an manufacturer Website for drone that sells different types of drone comp
       Given the website a relevant name. Images and all the content of
       the website is relevant.
 - [x] Clean and organized Code
+- [x] JWT Implemented
 - [x] Loading Spinner Added
 - [x] Used Environment Variables
 - [x] Used React Form hooks
