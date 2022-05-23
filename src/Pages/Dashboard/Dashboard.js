@@ -1,6 +1,14 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  FaBox,
+  FaCartPlus,
+  FaCrown,
+  FaPlus,
+  FaUserCircle,
+} from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
+import logoWhite from "../../assets/images/logoWhite.png";
 import auth from "./../../firebase.init";
 import useAdmin from "./../../hooks/useAdmin";
 
@@ -34,43 +42,61 @@ const Dashboard = () => {
       <div className="drawer drawer-mobile">
         <input id="tabIndex" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          <h2 className="text-2xl text-primary">Welcome to Your Dashboard</h2>
           <Outlet />
         </div>
         <div className="drawer-side">
-          <label for="tabIndex" className="drawer-overlay"></label>
+          <label htmlFor="tabIndex" className="drawer-overlay"></label>
           <div className="bg-secondary text-white">
-            <div className="flex justify-center items-center">
-              <Link to="/" className="btn btn-ghost normal-case text-xl">
-                daisyUI
+            <div className="flex justify-center items-center mt-4">
+              <Link to="/">
+                <img src={logoWhite} className="w-32" alt="" />
               </Link>
             </div>
             <ul className="menu p-4 overflow-y-auto w-80">
               <li>
-                <Link to="/dashboard">My Profile</Link>
+                <Link to="/dashboard" className="gap-6">
+                  <FaUserCircle />
+                  My Profile
+                </Link>
               </li>
               {admin ? (
                 <>
                   <li>
-                    <a>Manage All Orders</a>
+                    <Link to="/dashboard/manageOrders" className="gap-6">
+                      <FaCartPlus />
+                      Manage All Orders
+                    </Link>
                   </li>
                   <li>
-                    <a>Add A Product</a>
+                    <Link to="/dashboard/addProduct" className="gap-6">
+                      <FaPlus />
+                      Add A Product
+                    </Link>
                   </li>
                   <li>
-                    <a>Make Order</a>
+                    <Link to="/dashboard/makeAdmin" className="gap-6">
+                      <FaCrown />
+                      Make Admin
+                    </Link>
                   </li>
                   <li>
-                    <a>Manage Products</a>
+                    <Link to="/dashboard/manageProducts" className="gap-6">
+                      <FaBox />
+                      Manage Products
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li>
-                    <a>My Orders</a>
+                    <Link to="/dashboard/orders" className="gap-6">
+                      My Orders
+                    </Link>
                   </li>
                   <li>
-                    <a>Add A Review</a>
+                    <Link to="/dashboard/addReview" className="gap-6">
+                      Add A Review
+                    </Link>
                   </li>
                 </>
               )}
