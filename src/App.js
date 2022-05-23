@@ -4,6 +4,7 @@ import "./App.css";
 import Blogs from "./Pages/Blogs/Blogs";
 import AddProduct from "./Pages/Dashboard/Admin/AddProduct";
 import ManageOrders from "./Pages/Dashboard/Admin/ManageOrders";
+import ManageProducts from "./Pages/Dashboard/Admin/ManageProducts";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import Home from "./Pages/Home/Home";
@@ -41,6 +42,14 @@ function App() {
             element={
               <RequireAdmin>
                 <AddProduct />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="manageProducts"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
               </RequireAdmin>
             }
           />
