@@ -12,6 +12,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth);
     navigate("/signin");
+    localStorage.removeItem("accessToken");
   };
 
   const menuItems = (
@@ -26,7 +27,7 @@ const Header = () => {
       <li>
         <Link to="/portfolio">My Portfolio</Link>
       </li>
-      <li className={!user && "lg:ml-6"}>
+      <li className={!user ? "lg:ml-6" : ""}>
         {user ? (
           <div className="dropdown dropdown-hover">
             <label tabindex="0" className="btn btn-ghost rounded-btn">

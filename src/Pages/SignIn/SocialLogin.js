@@ -8,6 +8,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import useToken from "./../../hooks/useToken";
 
 const SocialLogin = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -20,6 +21,8 @@ const SocialLogin = () => {
 
   const location = useLocation();
 
+  const [token] = useToken(googleUser || githubUser);
+
   let from = location.state?.from?.pathname || "/";
 
   if (googleError || githubError)
@@ -27,7 +30,7 @@ const SocialLogin = () => {
 
   if (googleLoading || githubLoading) return <Loading />;
 
-  if (googleUser || githubUser) navigate(from, { replace: true });
+  if (token) navigate(from, { replace: true });
 
   return (
     <div className="flex justify-center gap-2 mt-4 flex-col lg:flex-row">

@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login.gif";
 import auth from "./../../firebase.init";
+import useToken from "./../../hooks/useToken";
 import Loading from "./../Shared/Loading";
 import SocialLogin from "./SocialLogin";
 
@@ -28,7 +29,7 @@ const SignIn = () => {
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  // const [token] = useToken(user || googleUser);
+  const [token] = useToken(user);
 
   let signInError;
   const navigate = useNavigate();
@@ -37,8 +38,8 @@ const SignIn = () => {
   let from = location.state?.from.pathname || "/";
 
   useEffect(() => {
-    if (user) navigate(from, { replace: true });
-  }, [user, navigate, from]);
+    if (token) navigate(from, { replace: true });
+  }, [token, navigate, from]);
 
   if (loading || sending) {
     return <Loading />;
@@ -159,7 +160,7 @@ const SignIn = () => {
             </form>
             <p className="text-center">
               <small>
-                New to Drohnenkomponenten{" "}
+                New to Drohnenkomponenten?{" "}
                 <Link className="text-primary" to="/signup">
                   Create New Account
                 </Link>
