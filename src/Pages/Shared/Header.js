@@ -26,7 +26,7 @@ const Header = () => {
       <li>
         <Link to="/portfolio">My Portfolio</Link>
       </li>
-      <li className="lg:ml-6">
+      <li className={!user && "lg:ml-6"}>
         {user ? (
           <div className="dropdown dropdown-hover">
             <label tabindex="0" className="btn btn-ghost rounded-btn">
@@ -37,12 +37,12 @@ const Header = () => {
               className="menu dropdown-content p-2 shadow bg-base-100 w-52 mt-4"
             >
               <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
                 <button onClick={handleSignOut} className="btn btn-ghost">
                   Sign Out
                 </button>
-              </li>
-              <li>
-                <a>Item 2</a>
               </li>
             </ul>
           </div>

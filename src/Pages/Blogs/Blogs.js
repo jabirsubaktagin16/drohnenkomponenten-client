@@ -9,7 +9,7 @@ const Blogs = () => {
         <h1 className="text-4xl font-bold text-primary text-center">
           Questions & Answers
         </h1>
-        <div className="flex space-x-2 w-full lg:flex-row flex-col lg:mt-6">
+        <div className="flex items-center justify-center space-x-2 w-full lg:flex-row flex-col lg:mt-6">
           <div className="text-center w-full lg:max-w-lg lg:text-left h-full">
             <img src={questions} alt="" />
           </div>
