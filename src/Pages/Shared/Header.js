@@ -28,9 +28,24 @@ const Header = () => {
       </li>
       <li className="lg:ml-6">
         {user ? (
-          <button onClick={handleSignOut} className="btn btn-ghost">
-            Sign Out
-          </button>
+          <div className="dropdown dropdown-hover">
+            <label tabindex="0" className="btn btn-ghost rounded-btn">
+              {user.displayName}
+            </label>
+            <ul
+              tabindex="0"
+              className="menu dropdown-content p-2 shadow bg-base-100 w-52 mt-4"
+            >
+              <li>
+                <button onClick={handleSignOut} className="btn btn-ghost">
+                  Sign Out
+                </button>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </ul>
+          </div>
         ) : (
           <Link className="btn btn-accent" to="/signin">
             Sign In
