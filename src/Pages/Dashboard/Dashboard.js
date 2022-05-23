@@ -4,6 +4,7 @@ import {
   FaBox,
   FaCartPlus,
   FaCrown,
+  FaPen,
   FaPlus,
   FaUserCircle,
 } from "react-icons/fa";
@@ -41,7 +42,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer drawer-mobile">
         <input id="tabIndex" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content">
           <Outlet />
         </div>
         <div className="drawer-side">
@@ -90,11 +91,13 @@ const Dashboard = () => {
                 <>
                   <li>
                     <Link to="/dashboard/orders" className="gap-6">
+                      <FaCartPlus />
                       My Orders
                     </Link>
                   </li>
                   <li>
                     <Link to="/dashboard/addReview" className="gap-6">
+                      <FaPen />
                       Add A Review
                     </Link>
                   </li>

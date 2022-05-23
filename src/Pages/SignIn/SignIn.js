@@ -157,7 +157,7 @@ const SignIn = () => {
                   <input
                     type="submit"
                     value="Sign In"
-                    className="btn btn-primary"
+                    className="btn btn-primary text-white"
                   />
                 </div>
               </form>
