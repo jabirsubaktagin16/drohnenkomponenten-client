@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithGithub,
   useSignInWithGoogle,
@@ -29,7 +29,9 @@ const SocialLogin = () => {
 
   // if (googleLoading || githubLoading) return <Loading />;
 
-  if (token) navigate(from, { replace: true });
+  useEffect(() => {
+    if (token) navigate(from, { replace: true });
+  }, [token, navigate, from]);
 
   return (
     <div className="flex justify-center gap-2 mt-4 flex-col lg:flex-row">

@@ -14,6 +14,9 @@ const SingleOrder = ({ order, refetch, setDeletingOrder }) => {
         <h3 className="text-gray-900 text-3xl text-left font-semibold mb-2">
           {toolName}
         </h3>
+        <p className="text-lg">Unit Price: ${unitPrice}</p>
+        <p className="text-lg">Order Quantity: {quantity}</p>
+        <p className="text-lg">Total Price: ${totalPrice}</p>
       </div>
       <div className="flex flex-col text-right md:pl-28 gap-6">
         <label

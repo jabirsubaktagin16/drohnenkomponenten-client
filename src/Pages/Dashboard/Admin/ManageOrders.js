@@ -1,10 +1,45 @@
 import React from "react";
+import { useQuery } from "react-query";
+import Loading from "./../../Shared/Loading";
+import SingleManageOrder from "./SingleManageOrder";
 
 const ManageOrders = () => {
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("manageOrder", () =>
+    fetch("http://localhost:5000/manageOrder", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <div>
-      <h2>Hello From Manage Orders</h2>
-    </div>
+    <>
+      <div className="overflow-hidden">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>Order Id</th>
+              <th>Product Name</th>
+              <th>Customer Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <SingleManageOrder order={order} key={order._id} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
