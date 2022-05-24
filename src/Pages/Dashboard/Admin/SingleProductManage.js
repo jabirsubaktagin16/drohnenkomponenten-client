@@ -35,12 +35,6 @@ const SingleProductManage = ({ tool, refetch, setDeletingTool }) => {
         >
           <MdDelete />
         </label>
-        {/* <button
-          // onClick={() => handleDelete(_id)}
-          className="text-4xl  text-red-500 hover:text-red-600"
-        >
-          
-        </button> */}
       </div>
     </div>
   );

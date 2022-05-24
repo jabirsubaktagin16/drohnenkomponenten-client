@@ -7,6 +7,7 @@ import ManageOrders from "./Pages/Dashboard/Admin/ManageOrders";
 import ManageProducts from "./Pages/Dashboard/Admin/ManageProducts";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import MyOrders from "./Pages/Dashboard/NormalUser/MyOrders";
 import Home from "./Pages/Home/Home";
 import PurchaseItem from "./Pages/Purchase/PurchaseItem";
 import NotFound from "./Pages/Shared/NotFound";
@@ -38,6 +39,14 @@ function App() {
           }
         >
           <Route index element={<MyProfile />}></Route>
+          <Route
+            path="orders"
+            element={
+              <RequireAuth>
+                <MyOrders />
+              </RequireAuth>
+            }
+          />
           <Route
             path="manageOrders"
             element={
