@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Blogs from "./Pages/Blogs/Blogs";
 import AddProduct from "./Pages/Dashboard/Admin/AddProduct";
+import MakeAdmin from "./Pages/Dashboard/Admin/MakeAdmin";
 import ManageOrders from "./Pages/Dashboard/Admin/ManageOrders";
 import ManageProducts from "./Pages/Dashboard/Admin/ManageProducts";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -52,6 +53,14 @@ function App() {
             element={
               <RequireAdmin>
                 <ManageOrders />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
               </RequireAdmin>
             }
           />

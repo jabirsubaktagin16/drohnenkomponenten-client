@@ -3,7 +3,7 @@ import React from "react";
 const SingleManageOrder = ({ order }) => {
   const { _id, toolName, customer } = order;
   return (
-    <tr className="break-normal">
+    <tr className="break-all">
       <th>{_id}</th>
       <td>{toolName}</td>
       <td>{customer}</td>
