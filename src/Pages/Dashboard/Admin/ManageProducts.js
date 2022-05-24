@@ -24,7 +24,10 @@ const ManageProducts = () => {
 
   return (
     <>
-      <div className="grid mx-auto lg:px-20 my-16 gap-8">
+      <h2 className="text-4xl font-bold my-8 text-primary text-center">
+        Manage Products
+      </h2>
+      <div className="grid mx-auto mb-8 lg:px-20 gap-8">
         {tools?.map((tool) => (
           <SingleProductManage
             tool={tool}
