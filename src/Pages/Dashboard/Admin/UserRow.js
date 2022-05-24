@@ -26,10 +26,12 @@ const UserRow = ({ index, user, refetch }) => {
       });
   };
   return (
-    <tr>
-      <th>{index + 1}</th>
-      <td>{email}</td>
-      <td>
+    <tr className="border-b">
+      <td className="px-6 py-4  text-sm font-medium text-gray-900">
+        {index + 1}
+      </td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 ">{email}</td>
+      <td className="px-6 py-4 ">
         {role !== "admin" && (
           <button
             onClick={makeAdmin}
@@ -40,13 +42,34 @@ const UserRow = ({ index, user, refetch }) => {
           </button>
         )}
       </td>
-      <td>
+      <td className="text-sm text-gray-900 font-light px-6 py-4 ">
         <button className="btn btn-xs btn-error gap-2">
           <AiFillDelete />
           Remove User
         </button>
       </td>
     </tr>
+    // <tr>
+    //   <th>{index + 1}</th>
+    //   <td>{email}</td>
+    //   <td>
+    //     {role !== "admin" && (
+    //       <button
+    //         onClick={makeAdmin}
+    //         className="btn btn-xs btn-secondary gap-2 text-white"
+    //       >
+    //         <AiFillCrown />
+    //         Make Admin
+    //       </button>
+    //     )}
+    //   </td>
+    //   <td>
+    //     <button className="btn btn-xs btn-error gap-2">
+    //       <AiFillDelete />
+    //       Remove User
+    //     </button>
+    //   </td>
+    // </tr>
   );
 };
 

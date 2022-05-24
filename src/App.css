@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Cardo&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500&family=Open+Sans:wght@400&display=swap");
 
 body {
-  font-family: "Cardo", serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 h1,
@@ -10,5 +10,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Oswald", sans-serif !important;
+  font-family: "Archivo", sans-serif !important;
 }

@@ -4,12 +4,12 @@ import {
   FaBox,
   FaCartPlus,
   FaCrown,
+  FaHome,
   FaPen,
   FaPlus,
   FaUserCircle,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
-import logoWhite from "../../assets/images/logoWhite.png";
 import auth from "./../../firebase.init";
 import useAdmin from "./../../hooks/useAdmin";
 
@@ -48,12 +48,13 @@ const Dashboard = () => {
         <div className="drawer-side">
           <label htmlFor="tabIndex" className="drawer-overlay"></label>
           <div className="bg-secondary text-white">
-            <div className="flex justify-center items-center mt-4">
-              <Link to="/">
-                <img src={logoWhite} className="w-32" alt="" />
-              </Link>
-            </div>
             <ul className="menu p-4 overflow-y-auto w-80">
+              <li>
+                <Link to="/" className="gap-6">
+                  <FaHome />
+                  Drohnenkomponenten Home
+                </Link>
+              </li>
               <li>
                 <Link to="/dashboard" className="gap-6">
                   <FaUserCircle />

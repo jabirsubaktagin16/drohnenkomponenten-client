@@ -10,6 +10,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import MyOrders from "./Pages/Dashboard/NormalUser/MyOrders";
 import Home from "./Pages/Home/Home";
+import Products from "./Pages/Products/Products";
 import PurchaseItem from "./Pages/Purchase/PurchaseItem";
 import NotFound from "./Pages/Shared/NotFound";
 import RequireAdmin from "./Pages/SignIn/RequireAdmin";
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="products" element={<Products />} />
         <Route path="blogs" element={<Blogs />} />
         <Route
           path="purchase/:id"
