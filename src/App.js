@@ -8,7 +8,9 @@ import ManageOrders from "./Pages/Dashboard/Admin/ManageOrders";
 import ManageProducts from "./Pages/Dashboard/Admin/ManageProducts";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import AddReview from "./Pages/Dashboard/NormalUser/AddReview";
 import MyOrders from "./Pages/Dashboard/NormalUser/MyOrders";
+import Payment from "./Pages/Dashboard/NormalUser/Payment";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
 import PurchaseItem from "./Pages/Purchase/PurchaseItem";
@@ -50,6 +52,15 @@ function App() {
               </RequireAuth>
             }
           />
+          <Route
+            path="addReview"
+            element={
+              <RequireAuth>
+                <AddReview />
+              </RequireAuth>
+            }
+          />
+          <Route path="payment/:id" element={<Payment />} />
           <Route
             path="manageOrders"
             element={

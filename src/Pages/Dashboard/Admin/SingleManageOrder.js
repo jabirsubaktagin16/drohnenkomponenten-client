@@ -4,10 +4,10 @@ const SingleManageOrder = ({ order }) => {
   const { _id, toolName, customer } = order;
   return (
     <tr className="break-all">
-      <th>{_id}</th>
-      <td>{toolName}</td>
-      <td>{customer}</td>
-      <td>Payment Pending</td>
+      <th className="text-sm">{_id}</th>
+      <td className="text-sm">{toolName}</td>
+      <td className="text-sm">{customer}</td>
+      <td className="text-sm">Payment Pending</td>
     </tr>
   );
 };

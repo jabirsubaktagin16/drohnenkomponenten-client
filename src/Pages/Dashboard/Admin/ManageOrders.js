@@ -22,7 +22,7 @@ const ManageOrders = () => {
 
   return (
     <>
-      <div className="overflow-hidden">
+      <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
