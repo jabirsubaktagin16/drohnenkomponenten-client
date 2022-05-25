@@ -1,7 +1,8 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import useToolDetails from "./../../../hooks/useToolDetails";
 
-const CheckOutForm = ({ singlOrder }) => {
+const CheckOutForm = ({ singleOrder }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -10,7 +11,11 @@ const CheckOutForm = ({ singlOrder }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
-  const { _id, totalPrice, customer, customerName } = singlOrder;
+  const { _id, totalPrice, customer, customerName, toolId, quantity } =
+    singleOrder;
+  const [tool] = useToolDetails(toolId);
+  let { name, price, minimumQuantity, availableQuantity, img, description } =
+    tool;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -81,8 +86,29 @@ const CheckOutForm = ({ singlOrder }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setProcessing(false);
-          console.log(data);
+          // setProcessing(false);
+          // console.log(data);
+          availableQuantity = parseInt(availableQuantity - quantity);
+          const updatedProduct = {
+            name,
+            price,
+            minimumQuantity,
+            availableQuantity,
+            img,
+            description,
+          };
+          fetch(`http://localhost:5000/tool/${toolId}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(updatedProduct),
+          })
+            .then((res2) => res2.json())
+            .then((finalData) => {
+              setProcessing(false);
+            });
         });
     }
   };

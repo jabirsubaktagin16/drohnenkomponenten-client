@@ -14,7 +14,7 @@ const Payment = () => {
   const { id } = useParams();
   const url = `http://localhost:5000/order/${id}`;
 
-  const { data: singlOrder, isLoading } = useQuery(["order", id], () =>
+  const { data: singleOrder, isLoading } = useQuery(["order", id], () =>
     fetch(url, {
       method: "GET",
       headers: {
@@ -30,21 +30,16 @@ const Payment = () => {
       <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
         <div className="card-body">
           <p className="text-success font-bold">
-            Hello, {singlOrder.customerName}
+            Hello, {singleOrder.customerName}
           </p>
-          <h2 className="card-title">Pay for {singlOrder.toolName}</h2>
+          <h2 className="card-title">Pay for {singleOrder.toolName}</h2>
 
-          <p>Please pay: ${singlOrder.totalPrice}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+          <p>Please pay: ${singleOrder.totalPrice}</p>
+          <div className="mt-6">
+            <Elements stripe={stripePromise}>
+              <CheckOutForm singleOrder={singleOrder} />
+            </Elements>
           </div>
-        </div>
-      </div>
-      <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-        <div className="card-body">
-          <Elements stripe={stripePromise}>
-            <CheckOutForm singlOrder={singlOrder} />
-          </Elements>
         </div>
       </div>
     </div>
