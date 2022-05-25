@@ -1,14 +1,14 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
-  FaBox,
-  FaCartPlus,
-  FaCrown,
-  FaHome,
-  FaPen,
-  FaPlus,
-  FaUserCircle,
-} from "react-icons/fa";
+  AiOutlineCrown,
+  AiOutlineEdit,
+  AiOutlineHome,
+  AiOutlineInbox,
+  AiOutlinePlus,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+} from "react-icons/ai";
 import { Link, Outlet } from "react-router-dom";
 import auth from "./../../firebase.init";
 import useAdmin from "./../../hooks/useAdmin";
@@ -51,13 +51,13 @@ const Dashboard = () => {
             <ul className="menu p-4 overflow-y-auto w-80">
               <li>
                 <Link to="/" className="gap-6">
-                  <FaHome />
+                  <AiOutlineHome />
                   Drohnenkomponenten Home
                 </Link>
               </li>
               <li>
                 <Link to="/dashboard" className="gap-6">
-                  <FaUserCircle />
+                  <AiOutlineUser />
                   My Profile
                 </Link>
               </li>
@@ -65,25 +65,25 @@ const Dashboard = () => {
                 <>
                   <li>
                     <Link to="/dashboard/manageOrders" className="gap-6">
-                      <FaCartPlus />
+                      <AiOutlineShoppingCart />
                       Manage All Orders
                     </Link>
                   </li>
                   <li>
                     <Link to="/dashboard/addProduct" className="gap-6">
-                      <FaPlus />
+                      <AiOutlinePlus />
                       Add A Product
                     </Link>
                   </li>
                   <li>
                     <Link to="/dashboard/makeAdmin" className="gap-6">
-                      <FaCrown />
+                      <AiOutlineCrown />
                       Make Admin
                     </Link>
                   </li>
                   <li>
                     <Link to="/dashboard/manageProducts" className="gap-6">
-                      <FaBox />
+                      <AiOutlineInbox />
                       Manage Products
                     </Link>
                   </li>
@@ -92,13 +92,13 @@ const Dashboard = () => {
                 <>
                   <li>
                     <Link to="/dashboard/orders" className="gap-6">
-                      <FaCartPlus />
+                      <AiOutlineShoppingCart />
                       My Orders
                     </Link>
                   </li>
                   <li>
                     <Link to="/dashboard/addReview" className="gap-6">
-                      <FaPen />
+                      <AiOutlineEdit />
                       Add A Review
                     </Link>
                   </li>

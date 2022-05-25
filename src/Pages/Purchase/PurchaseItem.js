@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-hot-toast";
-import { FaCartPlus } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
@@ -115,10 +115,10 @@ const PurchaseItem = () => {
               {/* Order Confirm Button */}
               <button
                 onClick={handleOrder}
-                className="btn btn-primary btn-lg text-base-100 gap-2 mt-10"
+                className="btn btn-primary btn-lg text-base-100 gap-6 mt-10"
                 disabled={num > availableQuantity || num < minimumQuantity}
               >
-                <FaCartPlus /> Add to Cart
+                <AiOutlineShoppingCart /> Add to Cart
               </button>
             </div>
           </div>

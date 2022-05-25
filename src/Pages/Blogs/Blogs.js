@@ -95,8 +95,14 @@ const Blogs = () => {
               </div>
               <div className="collapse-content">
                 <p>
-                  We can improve performance of a React Application in following
-                  ways:
+                  If we try to set the state directly, calling the{" "}
+                  <code>setState()</code> it may just replace the update that
+                  are made. When we directly update the state, it doesn't change
+                  this state immediately. Instead, it creates a pending state
+                  transition, and accessing it after calling this method will
+                  only return the present value. Also we will lose control of
+                  the state across all components. That's why we should never
+                  set the state directly in react.
                 </p>
               </div>
             </div>

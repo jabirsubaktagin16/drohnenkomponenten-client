@@ -21,7 +21,7 @@ const Reviews = () => {
           slidesPerView={1}
           spaceBetween={30}
           freeMode={true}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 1000 }}
           pagination={{
             clickable: true,
           }}
@@ -43,8 +43,8 @@ const Reviews = () => {
           className="p-20"
         >
           {reviews.map((review) => (
-            <SwiperSlide>
-              <SingleReview review={review} key={review._id} />
+            <SwiperSlide key={review._id}>
+              <SingleReview review={review} />
             </SwiperSlide>
           ))}
         </Swiper>
