@@ -52,7 +52,7 @@ const PurchaseItem = () => {
       customerName: user?.displayName,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://limitless-woodland-47150.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -1,6 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
-import Loading from "react-loading";
 import useToolDetails from "./../../../hooks/useToolDetails";
 
 const CheckOutForm = ({ singleOrder }) => {
@@ -19,14 +18,17 @@ const CheckOutForm = ({ singleOrder }) => {
     tool;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ totalPrice }),
-    })
+    fetch(
+      "https://limitless-woodland-47150.herokuapp.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ totalPrice }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -34,8 +36,6 @@ const CheckOutForm = ({ singleOrder }) => {
         }
       });
   }, [totalPrice]);
-
-  if (processing) return <Loading />;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -79,7 +79,7 @@ const CheckOutForm = ({ singleOrder }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5000/order/${_id}`, {
+      fetch(`https://limitless-woodland-47150.herokuapp.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -100,14 +100,17 @@ const CheckOutForm = ({ singleOrder }) => {
             img,
             description,
           };
-          fetch(`http://localhost:5000/tool/${toolId}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(updatedProduct),
-          })
+          fetch(
+            `https://limitless-woodland-47150.herokuapp.com/tool/${toolId}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(updatedProduct),
+            }
+          )
             .then((res2) => res2.json())
             .then((finalData) => {
               setProcessing(false);

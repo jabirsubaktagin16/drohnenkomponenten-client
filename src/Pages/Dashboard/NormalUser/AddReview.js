@@ -24,7 +24,7 @@ const AddReview = () => {
       review: data.review,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://limitless-woodland-47150.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

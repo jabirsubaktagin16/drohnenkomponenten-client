@@ -10,7 +10,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLEKEY);
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/order/${id}`;
+  const url = `https://limitless-woodland-47150.herokuapp.com/order/${id}`;
 
   const { data: singleOrder, isLoading } = useQuery(["order", id], () =>
     fetch(url, {

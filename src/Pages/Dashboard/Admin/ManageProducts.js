@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch("http://localhost:5000/manageTools", {
+    fetch("https://limitless-woodland-47150.herokuapp.com/manageTools", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

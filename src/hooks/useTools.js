@@ -4,7 +4,7 @@ const useTools = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tools")
+    fetch("https://limitless-woodland-47150.herokuapp.com/tools")
       .then((res) => res.json())
       .then((data) => setTools(data.reverse()));
   }, []);

@@ -34,7 +34,7 @@ const AddProduct = () => {
             description: data.description,
           };
           // send to your database
-          fetch("http://localhost:5000/tools", {
+          fetch("https://limitless-woodland-47150.herokuapp.com/tools", {
             method: "POST",
             headers: {
               "content-type": "application/json",
