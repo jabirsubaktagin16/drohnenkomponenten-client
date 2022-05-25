@@ -8,8 +8,6 @@ import CheckOutForm from "./CheckOutForm";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLEKEY);
 
-console.log(typeof process.env.REACT_APP_STRIPE_PUBLISHABLEKEY);
-
 const Payment = () => {
   const { id } = useParams();
   const url = `http://localhost:5000/order/${id}`;

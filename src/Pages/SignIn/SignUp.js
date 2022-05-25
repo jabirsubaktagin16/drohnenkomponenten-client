@@ -9,6 +9,7 @@ import signUp from "../../assets/images/signUp.gif";
 import auth from "../../firebase.init";
 import Header from "../Shared/Header";
 import Loading from "../Shared/Loading";
+import useToken from "./../../hooks/useToken";
 import SocialLogin from "./SocialLogin";
 
 const SignUp = () => {
@@ -22,7 +23,7 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  // const [token] = useToken(user || googleUser);
+  const [token] = useToken(user);
 
   let signUpError;
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const SignUp = () => {
     console.log("Update Done");
   };
 
-  if (user) navigate("/");
+  if (token) navigate("/");
 
   return (
     <>

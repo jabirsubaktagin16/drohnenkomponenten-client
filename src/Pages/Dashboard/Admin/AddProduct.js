@@ -190,12 +190,7 @@ const AddProduct = () => {
             <textarea
               className="input input-bordered min-w-full h-52 resize-none"
               placeholder="Enter Product Description Here"
-              {...register("description", {
-                required: {
-                  value: true,
-                  message: "Image is required",
-                },
-              })}
+              {...register("description")}
             />
           </div>
           <input

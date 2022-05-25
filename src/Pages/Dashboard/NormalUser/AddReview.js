@@ -1,73 +1,129 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import review from "../../../assets/images/review.png";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import auth from "./../../../firebase.init";
 
 const AddReview = () => {
-  const [user] = useAuthState(auth);
-  return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
-      <div className="card lg:card-side bg-base-100 shadow-xl rounded-none">
-        <figure>
-          <img
-            src={review}
-            alt="Review"
-            style={{ height: "400px", width: "400px" }}
-          />
-        </figure>
-        <div className="card-body w-96">
-          <form>
-            {/* Name Input Field */}
-            <div className="form-control min-w-full">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="input input-bordered min-w-full"
-                value={user?.displayName}
-                disabled
-                // {...register("name", {
-                //   required: {
-                //     value: true,
-                //     message: "Name is required",
-                //   },
-                // })}
-              />
-            </div>
-            {/* Rating Input Field */}
-            <div className="form-control min-w-full">
-              <label className="label">
-                <span className="label-text">Rate Our Service</span>
-              </label>
-            </div>
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
 
-            {/* Review Input Field */}
-            <div className="form-control min-w-full">
-              <label className="label">
-                <span className="label-text">Review</span>
-              </label>
-              <textarea
-                className="input input-bordered min-w-full h-52 resize-none"
-                placeholder="Enter Your Review Here"
-                // {...register("description", {
-                //   required: {
-                //     value: true,
-                //     message: "Image is required",
-                //   },
-                // })}
-              />
-            </div>
+  const [user] = useAuthState(auth);
+
+  // console.log(user);
+
+  const onSubmit = async (data) => {
+    const review = {
+      name: user?.displayName,
+      email: user?.email,
+      rating: parseInt(data.rating),
+      review: data.review,
+    };
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.insertedId) {
+          toast.success("Your review was posted successfully");
+          reset();
+        } else {
+          toast.error("Failed to add your review");
+        }
+      });
+  };
+
+  return (
+    <>
+      <div className="my-20 lg:px-20 px-6">
+        <h2 className="text-4xl font-bold my-8 text-primary text-center">
+          Add a New Review
+        </h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Rating Input Field */}
+          <div className="form-control min-w-full">
+            <label className="label">
+              <span className="label-text">Rate Our Service</span>
+            </label>
             <input
-              className="btn bg-primary border-0 text-base-100 w-full max-w-lg hover:bg-secondary mt-4"
-              value="Post"
-              type="submit"
+              type="number"
+              placeholder="Rate our Service out of 5"
+              className="input input-bordered min-w-full"
+              {...register("rating", {
+                required: {
+                  value: true,
+                  message: "Rating is required",
+                },
+                min: {
+                  value: 0,
+                  message: "Minimum Value is 0",
+                },
+                max: {
+                  value: 5,
+                  message: "Maximum Value is 5",
+                },
+              })}
             />
-          </form>
-        </div>
+            <label className="label">
+              {errors.rating?.type === "required" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.rating.message}
+                </span>
+              )}
+              {errors.rating?.type === "min" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.rating.message}
+                </span>
+              )}
+              {errors.rating?.type === "max" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.rating.message}
+                </span>
+              )}
+            </label>
+          </div>
+
+          {/* Review Input Field */}
+          <div className="form-control min-w-full">
+            <label className="label">
+              <span className="label-text">Review</span>
+            </label>
+            <textarea
+              className="input input-bordered min-w-full h-52 resize-none"
+              placeholder="Enter Your Review Here"
+              {...register("review", {
+                required: {
+                  value: true,
+                  message: "Review is required",
+                },
+              })}
+            />
+            <label className="label">
+              {errors.review?.type === "required" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.review.message}
+                </span>
+              )}
+            </label>
+          </div>
+          <input
+            className="btn bg-primary border-0 text-base-100 min-w-full hover:bg-secondary mt-4"
+            value="Post"
+            type="submit"
+          />
+        </form>
       </div>
-    </div>
+    </>
   );
 };
 

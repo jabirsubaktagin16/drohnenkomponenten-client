@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import Loading from "react-loading";
 import useToolDetails from "./../../../hooks/useToolDetails";
 
 const CheckOutForm = ({ singleOrder }) => {
@@ -33,6 +34,8 @@ const CheckOutForm = ({ singleOrder }) => {
         }
       });
   }, [totalPrice]);
+
+  if (processing) return <Loading />;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
