@@ -18,7 +18,7 @@ const Blogs = () => {
           <div className="w-full h-full">
             {/* Question-1 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
@@ -50,7 +50,7 @@ const Blogs = () => {
 
             {/* Question-2 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
@@ -67,7 +67,7 @@ const Blogs = () => {
 
             {/* Question-3 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
@@ -83,7 +83,7 @@ const Blogs = () => {
 
             {/* Question-4 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
@@ -109,7 +109,7 @@ const Blogs = () => {
 
             {/* Question-5 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
@@ -159,7 +159,7 @@ const Blogs = () => {
 
             {/* Question-6 */}
             <div
-              tabindex="0"
+              tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">

@@ -14,12 +14,16 @@ const AddReview = () => {
 
   const [user] = useAuthState(auth);
 
-  // console.log(user);
+  console.log(user);
 
   const onSubmit = async (data) => {
     const review = {
       name: user?.displayName,
       email: user?.email,
+      avatar:
+        user?.photoURL === null
+          ? "https://i.ibb.co/N7bsG2y/blank-profile-picture-973460-1280.webp"
+          : user?.photoURL,
       rating: parseInt(data.rating),
       review: data.review,
     };

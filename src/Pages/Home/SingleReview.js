@@ -6,15 +6,15 @@ const SingleReview = ({ review }) => {
   return (
     <div
       className="flex flex-col justify-between full max-w-sm bg-white rounded-lg shadow-md"
-      style={{ height: "300px" }}
+      style={{ height: "400px" }}
     >
-      {/* <div className="flex justify-center items-center pt-10">
+      <div className="flex justify-center items-center pt-10">
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <img src={review.avatar} alt="" />
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="card-body items-center text-center">
         <h2 className="card-title">{review.name}</h2>

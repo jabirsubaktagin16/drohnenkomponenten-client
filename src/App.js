@@ -11,6 +11,7 @@ import MyProfile from "./Pages/Dashboard/MyProfile";
 import AddReview from "./Pages/Dashboard/NormalUser/AddReview";
 import MyOrders from "./Pages/Dashboard/NormalUser/MyOrders";
 import Payment from "./Pages/Dashboard/NormalUser/Payment";
+import UpdateProfile from "./Pages/Dashboard/UpdateProfile";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
 import PurchaseItem from "./Pages/Purchase/PurchaseItem";
@@ -44,23 +45,11 @@ function App() {
           }
         >
           <Route index element={<MyProfile />}></Route>
-          <Route
-            path="orders"
-            element={
-              <RequireAuth>
-                <MyOrders />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="addReview"
-            element={
-              <RequireAuth>
-                <AddReview />
-              </RequireAuth>
-            }
-          />
+          <Route path="updateProfile/:id" element={<UpdateProfile />} />
+          <Route path="orders" element={<MyOrders />} />
+          <Route path="addReview" element={<AddReview />} />
           <Route path="payment/:id" element={<Payment />} />
+
           <Route
             path="manageOrders"
             element={
