@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading";
+import PageTitle from "../../Shared/PageTitle";
 import UserRow from "./UserRow";
 
 const MakeAdmin = () => {
@@ -20,6 +21,7 @@ const MakeAdmin = () => {
   if (isLoading) return <Loading />;
   return (
     <>
+      <PageTitle title="Make Admin" />
       <div className="h-screen flex justify-center items-center flex-col">
         <div className="flex flex-col">
           <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

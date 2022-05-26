@@ -3,11 +3,13 @@ import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
 import useTools from "./../../hooks/useTools";
 import SingleTool from "./../Home/SingleTool";
+import PageTitle from "./../Shared/PageTitle";
 
 const Products = () => {
   const [tools, setTools] = useTools();
   return (
     <>
+      <PageTitle title="Products" />
       <Header />
       <h1 className="text-4xl font-bold text-primary text-center">
         Our Products

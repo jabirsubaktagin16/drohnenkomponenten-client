@@ -10,6 +10,7 @@ import auth from "../../firebase.init";
 import Header from "../Shared/Header";
 import Loading from "../Shared/Loading";
 import useToken from "./../../hooks/useToken";
+import PageTitle from "./../Shared/PageTitle";
 import SocialLogin from "./SocialLogin";
 
 const SignUp = () => {
@@ -50,6 +51,7 @@ const SignUp = () => {
 
   return (
     <>
+      <PageTitle title="Sign Up" />
       <Header />
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row shadow-2xl ">

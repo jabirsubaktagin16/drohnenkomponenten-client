@@ -2,10 +2,12 @@ import React from "react";
 import questions from "../../assets/images/Questions.png";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
+import PageTitle from "../Shared/PageTitle";
 
 const Blogs = () => {
   return (
     <>
+      <PageTitle title="Blogs" />
       <Header />
       <div className="my-8 lg:px-20">
         <h1 className="text-4xl font-bold text-primary text-center">
@@ -40,6 +42,7 @@ const Blogs = () => {
                     We can do Code-splitting in React using dynamic{" "}
                     <code>import()</code>
                   </li>
+                  import PageTitle from './../Shared/PageTitle';
                   <li>
                     We can also do windowing or list visualization in react
                   </li>

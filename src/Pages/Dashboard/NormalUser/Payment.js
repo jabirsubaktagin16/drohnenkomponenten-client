@@ -4,6 +4,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading";
+import PageTitle from "../../Shared/PageTitle";
 import CheckOutForm from "./CheckOutForm";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLEKEY);
@@ -25,6 +26,7 @@ const Payment = () => {
 
   return (
     <div>
+      <PageTitle title="Payment" />
       <div className="card w-50 max-w-md bg-base-100 shadow-xl my-12">
         <div className="card-body">
           <p className="text-success font-bold">

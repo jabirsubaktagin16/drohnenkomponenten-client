@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
+import PageTitle from "../Shared/PageTitle";
 import auth from "./../../firebase.init";
 import useToolDetails from "./../../hooks/useToolDetails";
 import "./PurchaseItem.css";
@@ -67,6 +68,7 @@ const PurchaseItem = () => {
 
   return (
     <>
+      <PageTitle title={name ? name : ""} />
       <Header />
       <div className="my-12">
         <div className="container items-center mx-auto md:px-20 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 pt-6 gap-8">

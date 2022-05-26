@@ -6,7 +6,7 @@ const SingleReview = ({ review }) => {
   return (
     <div
       className="flex flex-col justify-between full max-w-sm bg-white rounded-lg shadow-md"
-      style={{ height: "400px" }}
+      style={{ height: "500px" }}
     >
       <div className="flex justify-center items-center pt-10">
         <div className="avatar">

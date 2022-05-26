@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading";
+import PageTitle from "../../Shared/PageTitle";
 import DeleteConfirmModal from "./../../Shared/DeleteConfirmModal";
 import SingleProductManage from "./SingleProductManage";
 
@@ -24,6 +25,7 @@ const ManageProducts = () => {
 
   return (
     <>
+      <PageTitle title="Manage Products" />
       <h2 className="text-4xl font-bold my-8 text-primary text-center">
         Manage Products
       </h2>

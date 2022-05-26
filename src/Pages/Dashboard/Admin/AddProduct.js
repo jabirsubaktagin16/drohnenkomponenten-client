@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import PageTitle from "../../Shared/PageTitle";
 
 const AddProduct = () => {
   const {
@@ -57,6 +58,7 @@ const AddProduct = () => {
 
   return (
     <>
+      <PageTitle title="Add A New Product" />
       <div className="my-20 lg:px-20 px-6">
         <h2 className="text-4xl font-bold my-8 text-primary text-center">
           Add a New Product

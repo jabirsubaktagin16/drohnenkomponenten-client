@@ -2,7 +2,9 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import PageTitle from "../../Shared/PageTitle";
 import auth from "./../../../firebase.init";
+import useUserDetails from "./../../../hooks/useUserDetails";
 
 const AddReview = () => {
   const {
@@ -14,16 +16,19 @@ const AddReview = () => {
 
   const [user] = useAuthState(auth);
 
-  console.log(user);
+  const [currentUser] = useUserDetails(user?.email);
+
+  const { name, img } = currentUser;
 
   const onSubmit = async (data) => {
     const review = {
-      name: user?.displayName,
+      name: user?.displayName || name,
       email: user?.email,
-      avatar:
-        user?.photoURL === null
-          ? "https://i.ibb.co/N7bsG2y/blank-profile-picture-973460-1280.webp"
-          : user?.photoURL,
+      avatar: img
+        ? img
+        : user?.photoURL === null
+        ? "https://i.ibb.co/N7bsG2y/blank-profile-picture-973460-1280.webp"
+        : user?.photoURL,
       rating: parseInt(data.rating),
       review: data.review,
     };
@@ -49,6 +54,7 @@ const AddReview = () => {
 
   return (
     <>
+      <PageTitle title="Add A Review" />
       <div className="my-20 lg:px-20 px-6">
         <h2 className="text-4xl font-bold my-8 text-primary text-center">
           Add a New Review

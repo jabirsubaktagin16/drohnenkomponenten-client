@@ -13,6 +13,7 @@ import MyOrders from "./Pages/Dashboard/NormalUser/MyOrders";
 import Payment from "./Pages/Dashboard/NormalUser/Payment";
 import UpdateProfile from "./Pages/Dashboard/UpdateProfile";
 import Home from "./Pages/Home/Home";
+import Portfolio from "./Pages/Portfolio/Portfolio";
 import Products from "./Pages/Products/Products";
 import PurchaseItem from "./Pages/Purchase/PurchaseItem";
 import NotFound from "./Pages/Shared/NotFound";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="products" element={<Products />} />
         <Route path="blogs" element={<Blogs />} />
+        <Route path="portfolio" element={<Portfolio />} />
         <Route
           path="purchase/:id"
           element={

@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import PageTitle from "../../Shared/PageTitle";
 import Loading from "./../../Shared/Loading";
 import SingleManageOrder from "./SingleManageOrder";
 
@@ -22,6 +23,7 @@ const ManageOrders = () => {
 
   return (
     <>
+      <PageTitle title="Manage Orders" />
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

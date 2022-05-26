@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import CancelConfirmModal from "../../Shared/CancelConfirmModal";
+import PageTitle from "../../Shared/PageTitle";
 import auth from "./../../../firebase.init";
 import Loading from "./../../Shared/Loading";
 import SingleOrder from "./SingleOrder";
@@ -42,6 +43,7 @@ const MyOrders = () => {
 
   return (
     <>
+      <PageTitle title="My Orders" />
       <h2 className="text-4xl font-bold my-8 text-primary text-center">
         My Orders
       </h2>

@@ -33,13 +33,14 @@ const UpdateProfile = () => {
           const updatedUser = {
             name: data.name,
             email: user?.email,
+            contactNo: data.contactNo,
             img: img,
             location: data.location,
             linkedIn: data.linkedIn,
           };
           // send to your database
-          fetch(`http://localhost:5000/user/${id}`, {
-            method: "PUT",
+          fetch(`https://limitless-woodland-47150.herokuapp.com/user/${id}`, {
+            method: "PATCH",
             headers: {
               "content-type": "application/json",
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -113,17 +114,29 @@ const UpdateProfile = () => {
             <input
               type="file"
               className="input input-bordered min-w-full"
-              {...register("image", {
+              {...register("image")}
+            />
+          </div>
+          {/* Contact No. Input Field */}
+          <div className="form-control min-w-full">
+            <label className="label">
+              <span className="label-text">Contact No.</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Your Contact No."
+              className="input input-bordered min-w-full"
+              {...register("contactNo", {
                 required: {
                   value: true,
-                  message: "Image is required",
+                  message: "Contact No. is required",
                 },
               })}
             />
             <label className="label">
-              {errors.image?.type === "required" && (
+              {errors.contactNo?.type === "required" && (
                 <span className="label-text-alt text-red-500">
-                  {errors.image.message}
+                  {errors.contactNo.message}
                 </span>
               )}
             </label>

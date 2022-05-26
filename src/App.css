@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500&family=Open+Sans:wght@400&display=swap");
 
+html {
+  overflow-x: hidden !important;
+}
+
 body {
   font-family: "Open Sans", sans-serif !important;
+  margin: 0 !important;
 }
 
 h1,
