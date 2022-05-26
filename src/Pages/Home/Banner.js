@@ -12,7 +12,7 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-base-100">
         <div className="max-w-md">
-          <h1 className="mb-5 lg:text-4xl text-xl font-bold uppercase">
+          <h1 className="mb-5 lg:text-4xl md:text-2xl text-xl font-bold uppercase">
             Welcome to Drohnenkomponenten
           </h1>
           <p className="mb-5 lg:text-lg text-sm">

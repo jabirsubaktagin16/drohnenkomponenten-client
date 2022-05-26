@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import PageTitle from "../../Shared/PageTitle";
+import CancelConfirmModal from "./../../Shared/CancelConfirmModal";
 import Loading from "./../../Shared/Loading";
 import SingleManageOrder from "./SingleManageOrder";
 
 const ManageOrders = () => {
+  const [deletingOrder, setDeletingOrder] = useState(null);
   const {
     data: orders,
     isLoading,
@@ -31,16 +33,30 @@ const ManageOrders = () => {
               <th>Order Id</th>
               <th>Product Name</th>
               <th>Customer Email</th>
-              <th>Status</th>
+              <th>Payment Status</th>
+              <th>Shipment Status</th>
+              <th>Cancel Order</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
-              <SingleManageOrder order={order} key={order._id} />
+              <SingleManageOrder
+                order={order}
+                key={order._id}
+                refetch={refetch}
+                setDeletingOrder={setDeletingOrder}
+              />
             ))}
           </tbody>
         </table>
       </div>
+      {deletingOrder && (
+        <CancelConfirmModal
+          deletingOrder={deletingOrder}
+          refetch={refetch}
+          setDeletingOrder={setDeletingOrder}
+        />
+      )}
     </>
   );
 };

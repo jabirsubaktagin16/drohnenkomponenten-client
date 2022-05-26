@@ -62,9 +62,18 @@ const Blogs = () => {
               </div>
               <div className="collapse-content">
                 <p>
-                  We can improve performance of a React Application in following
-                  ways:
+                  There are several ways we can handle a state in React Apps.
+                  They are given below:
                 </p>
+                <ol className="list-inside list-decimal">
+                  <li>URL</li>
+                  <li>Web Storage</li>
+                  <li>Local State</li>
+                  <li>Lifted State</li>
+                  <li>Derived State</li>
+                  <li>useRefs</li>
+                  <li>Context API</li>
+                </ol>
               </div>
             </div>
 
@@ -74,23 +83,7 @@ const Blogs = () => {
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
-                Question 3: How does prototypical inheritance work?
-              </div>
-              <div className="collapse-content">
-                <p>
-                  We can improve performance of a React Application in following
-                  ways:
-                </p>
-              </div>
-            </div>
-
-            {/* Question-4 */}
-            <div
-              tabIndex="0"
-              className="collapse collapse-plus border border-base-300 bg-base-100"
-            >
-              <div className="collapse-title text-xl font-medium">
-                Question 4: Why you do not set the state directly in React. For
+                Question 3: Why you do not set the state directly in React. For
                 example, if you have{" "}
                 <code>const [products, setProducts] = useState([])</code> . Why
                 you do not set <code>products = [...]</code> instead, you use
@@ -110,13 +103,13 @@ const Blogs = () => {
               </div>
             </div>
 
-            {/* Question-5 */}
+            {/* Question-4 */}
             <div
               tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
-                Question 5: You have an array of products. Each product has a
+                Question 4: You have an array of products. Each product has a
                 name, price, description, etc. How will you implement a search
                 to find products by name?
               </div>
@@ -160,13 +153,13 @@ const Blogs = () => {
               </div>
             </div>
 
-            {/* Question-6 */}
+            {/* Question-5 */}
             <div
               tabIndex="0"
               className="collapse collapse-plus border border-base-300 bg-base-100"
             >
               <div className="collapse-title text-xl font-medium">
-                Question 6: What is a unit test? Why should write unit tests?
+                Question 5: What is a unit test? Why should write unit tests?
               </div>
               <div className="collapse-content">
                 <p>

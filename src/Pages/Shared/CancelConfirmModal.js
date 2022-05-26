@@ -14,7 +14,7 @@ const CancelConfirmModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast(`Your order for ${toolName} is Canceled`);
+          toast(`Order for ${toolName} is Canceled`);
           setDeletingOrder(null);
           refetch();
         }
@@ -31,17 +31,14 @@ const CancelConfirmModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure you want to Cancel your order for {toolName}?
+            Are you sure you want to Cancel order for {toolName}?
           </h3>
           <div className="modal-action">
-            <button
-              onClick={() => handleDelete()}
-              className="btn btn-xs btn-error"
-            >
-              Delete
-            </button>
-            <label htmlFor="cancel-confirm-modal" className="btn btn-xs">
+            <button onClick={() => handleDelete()} className="btn btn-error">
               Cancel
+            </button>
+            <label htmlFor="cancel-confirm-modal" className="btn">
+              Close
             </label>
           </div>
         </div>
