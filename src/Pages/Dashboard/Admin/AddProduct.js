@@ -1,6 +1,9 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 import PageTitle from "../../Shared/PageTitle";
 
 const AddProduct = () => {
@@ -12,6 +15,8 @@ const AddProduct = () => {
   } = useForm();
 
   const imageStorageKey = process.env.REACT_APP_IMAGESTORAGEKEY;
+
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const image = data.image[0];
@@ -43,7 +48,15 @@ const AddProduct = () => {
             },
             body: JSON.stringify(tool),
           })
-            .then((res) => res.json())
+            .then((res) => {
+              if (res.status === 403 || res.status === 401) {
+                signOut(auth);
+                localStorage.removeItem("accessToken");
+                navigate("/signin");
+                toast("Please Sign In First");
+              }
+              return res.json();
+            })
             .then((inserted) => {
               if (inserted.insertedId) {
                 toast.success("Tool added successfully");
