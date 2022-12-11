@@ -39,7 +39,7 @@ const UpdateProfile = () => {
             linkedIn: data.linkedIn,
           };
           // send to your database
-          fetch(`https://limitless-woodland-47150.herokuapp.com/user/${id}`, {
+          fetch(`https://drohnenkomponenten-server.onrender.com/user/${id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",

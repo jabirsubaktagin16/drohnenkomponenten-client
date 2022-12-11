@@ -17,7 +17,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("manageOrder", () =>
-    fetch("https://limitless-woodland-47150.herokuapp.com/manageOrder", {
+    fetch("https://drohnenkomponenten-server.onrender.com/manageOrder", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

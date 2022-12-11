@@ -11,7 +11,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLEKEY);
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://limitless-woodland-47150.herokuapp.com/order/${id}`;
+  const url = `https://drohnenkomponenten-server.onrender.com/order/${id}`;
 
   const { data: singleOrder, isLoading } = useQuery(["order", id], () =>
     fetch(url, {

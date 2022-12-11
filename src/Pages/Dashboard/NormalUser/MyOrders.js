@@ -18,7 +18,7 @@ const MyOrders = () => {
 
   const fetchMyOrders = async (key) => {
     const res = await fetch(
-      `https://limitless-woodland-47150.herokuapp.com/order?customer=${user?.email}`,
+      `https://drohnenkomponenten-server.onrender.com/order?customer=${user?.email}`,
       {
         method: "GET",
         headers: {

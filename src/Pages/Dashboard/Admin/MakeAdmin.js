@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://limitless-woodland-47150.herokuapp.com/user", {
+    fetch("https://drohnenkomponenten-server.onrender.com/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

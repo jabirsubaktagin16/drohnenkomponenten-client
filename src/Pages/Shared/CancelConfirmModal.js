@@ -5,7 +5,7 @@ const CancelConfirmModal = ({ deletingOrder, refetch, setDeletingOrder }) => {
   const { toolName, _id } = deletingOrder;
 
   const handleDelete = () => {
-    fetch(`https://limitless-woodland-47150.herokuapp.com/order/${_id}`, {
+    fetch(`https://drohnenkomponenten-server.onrender.com/order/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

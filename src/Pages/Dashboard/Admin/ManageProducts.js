@@ -17,7 +17,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch("https://limitless-woodland-47150.herokuapp.com/manageTools", {
+    fetch("https://drohnenkomponenten-server.onrender.com/manageTools", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

@@ -33,7 +33,7 @@ const AddReview = () => {
       review: data.review,
     };
 
-    fetch("https://limitless-woodland-47150.herokuapp.com/reviews", {
+    fetch("https://drohnenkomponenten-server.onrender.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

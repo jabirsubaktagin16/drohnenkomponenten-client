@@ -40,7 +40,7 @@ const AddProduct = () => {
             description: data.description,
           };
           // send to your database
-          fetch("https://limitless-woodland-47150.herokuapp.com/tools", {
+          fetch("https://drohnenkomponenten-server.onrender.com/tools", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -6,7 +6,7 @@ const UserRow = ({ index, user, refetch }) => {
   const { email, role } = user;
   const makeAdmin = () => {
     fetch(
-      `https://limitless-woodland-47150.herokuapp.com/user/admin/${email}`,
+      `https://drohnenkomponenten-server.onrender.com/user/admin/${email}`,
       {
         method: "PUT",
         headers: {

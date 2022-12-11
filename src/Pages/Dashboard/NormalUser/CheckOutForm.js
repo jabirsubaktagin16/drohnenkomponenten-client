@@ -19,7 +19,7 @@ const CheckOutForm = ({ singleOrder }) => {
 
   useEffect(() => {
     fetch(
-      "https://limitless-woodland-47150.herokuapp.com/create-payment-intent",
+      "https://drohnenkomponenten-server.onrender.com/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -79,7 +79,7 @@ const CheckOutForm = ({ singleOrder }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`https://limitless-woodland-47150.herokuapp.com/order/${_id}`, {
+      fetch(`https://drohnenkomponenten-server.onrender.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -101,7 +101,7 @@ const CheckOutForm = ({ singleOrder }) => {
             description,
           };
           fetch(
-            `https://limitless-woodland-47150.herokuapp.com/tool/${toolId}`,
+            `https://drohnenkomponenten-server.onrender.com/tool/${toolId}`,
             {
               method: "PUT",
               headers: {

@@ -53,7 +53,7 @@ const PurchaseItem = () => {
       customerName: user?.displayName,
     };
 
-    fetch("https://limitless-woodland-47150.herokuapp.com/order", {
+    fetch("https://drohnenkomponenten-server.onrender.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
