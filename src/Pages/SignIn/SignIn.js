@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
+  useAuthState,
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/images/login.gif";
 import Header from "../Shared/Header";
 import auth from "./../../firebase.init";
@@ -29,6 +30,14 @@ const SignIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const [signedInUser, userLoading, userError] = useAuthState(auth);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+    if (signedInUser) setIsSignedIn(true);
+    else setIsSignedIn(false);
+  }, signedInUser);
+
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const [token] = useToken(user);
@@ -43,7 +52,7 @@ const SignIn = () => {
     if (token) navigate(from, { replace: true });
   }, [token, navigate, from]);
 
-  if (loading || sending) {
+  if (loading || sending || userLoading) {
     return <Loading />;
   }
 
@@ -69,6 +78,8 @@ const SignIn = () => {
       toast("Please Enter Your Email Address");
     }
   };
+
+  if (isSignedIn) return <Navigate to="/" />;
 
   return (
     <>

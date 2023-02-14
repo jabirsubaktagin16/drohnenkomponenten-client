@@ -16,6 +16,12 @@ const MyProfile = () => {
 
   const { _id, img, name, linkedIn, location, contactNo } = currentUser;
 
+  const image = img
+    ? img
+    : user?.photoURL
+    ? user?.photoURL
+    : "https://i.ibb.co/N7bsG2y/blank-profile-picture-973460-1280.webp";
+
   const handleUpdateProfile = (id) =>
     navigate(`/dashboard/updateProfile/${id}`);
 
@@ -29,17 +35,7 @@ const MyProfile = () => {
         <div className="flex justify-center items-center">
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
-              <img
-                src={
-                  img
-                    ? img
-                    : user?.photoURL
-                    ? user?.photoURL
-                    : "https://i.ibb.co/N7bsG2y/blank-profile-picture-973460-1280.webp"
-                }
-                alt="Shoes"
-                className="w-80 rounded-xl"
-              />
+              <img src={image} alt="Profile" className="w-80 rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">

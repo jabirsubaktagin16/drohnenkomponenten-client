@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
+  useAuthState,
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import signUp from "../../assets/images/signUp.gif";
 import auth from "../../firebase.init";
 import Header from "../Shared/Header";
@@ -24,12 +25,20 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+  const [signedInUser, userLoading, userError] = useAuthState(auth);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+    if (signedInUser) setIsSignedIn(true);
+    else setIsSignedIn(false);
+  }, signedInUser);
+
   const [token] = useToken(user);
 
   let signUpError;
   const navigate = useNavigate();
 
-  if (loading || updating) {
+  if (loading || updating || userLoading) {
     return <Loading />;
   }
 
@@ -48,6 +57,8 @@ const SignUp = () => {
   };
 
   if (token) navigate("/");
+
+  if (isSignedIn) return <Navigate to="/" />;
 
   return (
     <>
