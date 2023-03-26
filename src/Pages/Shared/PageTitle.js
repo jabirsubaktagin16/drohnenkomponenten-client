@@ -7,7 +7,7 @@ const PageTitle = ({ title }) => {
       <title>
         {title.length === 0
           ? "Drohnenkomponenten"
-          : `${title} | Drohnenkomponenten`}
+          : `${title} - Drohnenkomponenten`}
       </title>
     </Helmet>
   );

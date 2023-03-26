@@ -2,10 +2,12 @@ import React from "react";
 import contact from "../../assets/images/contact.png";
 import Footer from "./Footer";
 import Header from "./Header";
+import PageTitle from "./PageTitle";
 
 const ContactUs = () => {
   return (
     <>
+      <PageTitle title="Contact Us" />
       <Header />
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
